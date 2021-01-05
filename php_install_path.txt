@@ -1,0 +1,2 @@
+####更改以下目录路径可指定php-5.6安装路径,若不指定,默认php-5.6安装路径为/data/software/php-5.6.33
+/data/software
