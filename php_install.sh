@@ -58,6 +58,11 @@ function install_php()
    yes | cp $installdir/php56-33-fpm /etc/init.d/ && chmod +x /etc/init.d/php56-33-fpm
    chown -R apache:apache $php_install_dir/php-5.6.33
    sed -i "s%/data/software%$php_install_dir%g"  $php_install_dir/php-5.6.33/etc/php.ini  $php_install_dir/php-5.6.33/etc/php-fpm.conf $php_install_dir/php-5.6.33/etc/pool.d/www.conf /etc/init.d/php56-33-fpm
+   cd $php_install_dir/php-5.6.33/bin/ && curl -sS https://getcomposer.org/installer |php
+ 
+   if [ -f "$php_install_dir/php-5.6.33/bin/composer.phar" ];then
+      mv $php_install_dir/php-5.6.33/bin/composer.phar /usr/local/bin/composer
+   fi
 }
 
 
